@@ -56,7 +56,13 @@ const AuthForm = () => {
       <div className="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
         <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
           {variant === "REGISTER" && (
-            <Input errors={errors} id="name" label="Name" register={register} />
+            <Input
+              errors={errors}
+              id="name"
+              label="Name"
+              register={register}
+              disabled={isLoading}
+            />
           )}
           <Input
             errors={errors}
@@ -64,6 +70,7 @@ const AuthForm = () => {
             label="Email"
             type="email"
             register={register}
+            disabled={isLoading}
           />
           <Input
             errors={errors}
@@ -71,6 +78,7 @@ const AuthForm = () => {
             label="Password"
             type="password"
             register={register}
+            disabled={isLoading}
           />
           <div>
             <Button disabled={isLoading} fullWidth type="submit">
