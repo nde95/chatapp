@@ -67,7 +67,7 @@ const ChatForm: React.FC<HeaderProps> = ({ conversation }) => {
           register={register}
           errors={errors}
           placeholder={`Send a message to ${
-            chatPartner.name || conversation.name
+            conversation.isGroup ? conversation.name : chatPartner.name
           }`}
         />
         <button
