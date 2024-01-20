@@ -8,6 +8,7 @@ import { useMemo, useState } from "react";
 import { HiChevronLeft, HiEllipsisHorizontal } from "react-icons/hi2";
 import ProfileModal from "./ProfileModal";
 import AvatarGroup from "@/app/components/AvatarGroup";
+import useActiveUsers from "@/app/hooks/useActiveList";
 
 interface HeaderProps {
   conversation: Conversation & {
@@ -18,14 +19,16 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ conversation }) => {
   const chatPartner = useChatPartner(conversation);
   const [modalOpen, setModalOpen] = useState(false);
+  const { members } = useActiveUsers();
+  const isActive = members.indexOf(chatPartner?.email!) !== -1;
 
   const statusText = useMemo(() => {
     if (conversation.isGroup) {
       return `${conversation.users.length} members`;
     }
 
-    return "Active";
-  }, [conversation]);
+    return isActive ? "Active" : "Offline";
+  }, [conversation, isActive]);
 
   return (
     <>

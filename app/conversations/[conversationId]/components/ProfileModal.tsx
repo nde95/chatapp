@@ -9,6 +9,7 @@ import { IoClose, IoTrash } from "react-icons/io5";
 import Avatar from "@/app/components/Avatar";
 import ConfirmModal from "./ConfirmModal";
 import AvatarGroup from "@/app/components/AvatarGroup";
+import useActiveUsers from "@/app/hooks/useActiveList";
 
 interface ProfileModalProps {
   isOpen: boolean;
@@ -25,6 +26,8 @@ const ProfileModal: React.FC<ProfileModalProps> = ({
 }) => {
   const chatPartner = useChatPartner(data);
   const [confirmOpen, setConfirmOpen] = useState(false);
+  const { members } = useActiveUsers();
+  const isActive = members.indexOf(chatPartner?.email!) !== -1;
 
   const joinedDate = useMemo(() => {
     return format(new Date(chatPartner.createdAt), "PP");
@@ -38,8 +41,8 @@ const ProfileModal: React.FC<ProfileModalProps> = ({
     if (data.isGroup) {
       return `${data.users.length} members`;
     }
-    return "Active";
-  }, [data]);
+    return isActive ? "Active" : "Offline";
+  }, [data, isActive]);
 
   return (
     <>
