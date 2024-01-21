@@ -1,6 +1,6 @@
 # Live Chat Messenger Web Application
 
-Web chat application built with Next.js 14 and TypeScript.
+Web chat application built with Next.js 14 and TypeScript inspired by Facebook/Meta Messenger
 
 ## Features
 
