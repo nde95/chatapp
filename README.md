@@ -1,4 +1,4 @@
-# Chat Web Application
+# Live Chat Messenger Web Application
 
 Web chat application built with Next.js 14 and TypeScript.
 
