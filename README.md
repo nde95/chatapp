@@ -14,6 +14,8 @@ Web chat application built with Next.js 14 and TypeScript inspired by Facebook/M
 
 Check out the [Live demo](https://chatapp-seven-silk.vercel.app/).
 
+![Preview](https://i.imgur.com/pEVYDq9.png)
+
 ## Technologies used
 
 Technologies Used
